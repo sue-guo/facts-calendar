@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FavoriteFacts } from "./FavoriteFacts";
 import "./Calendar.css";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -30,7 +30,7 @@ export const Calendar = () => {
     return storedFacts ? JSON.parse(storedFacts) : [];
   });
   //save the fact to local storage
-  const handleSaveFact = (fact) => {
+  const handleSaveFact = (fact: string) => {
     // Add the new fact to the list of favorite facts
     const updatedFacts = [...favoriteFacts, fact];
     setFavoriteFacts(updatedFacts);
@@ -39,7 +39,7 @@ export const Calendar = () => {
     localStorage.setItem("favoriteFacts", JSON.stringify(updatedFacts));
   };
   //delete the fact from local storage
-  const handleDeleteFact = (index) => {
+  const handleDeleteFact = (index: number) => {
     // Create a copy of the favorite facts array without the fact at the specified index
     const updatedFacts = [
       ...favoriteFacts.slice(0, index),
